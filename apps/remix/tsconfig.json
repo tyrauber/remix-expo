@@ -1,0 +1,14 @@
+{
+  "extend": "../../tsconfig.json",
+  "include": ["remix.env.d.ts"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~components/*": ["../../packages/components"],
+      "~/*": ["./app/*"]
+    },
+
+    // Remix takes care of building everything in `remix build`.
+    "noEmit": true
+  }
+}
