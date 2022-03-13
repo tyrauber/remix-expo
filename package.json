@@ -6,15 +6,6 @@
   "license": "MIT",
   "main": "./apps/remix/server/index.js",
   "private": true,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "remix": "pnpm --filter \"@remix-expo/remix\"",
-    "expo": "pnpm --filter \"@remix-expo/expo\"",
-    "start": "pnpm --filter \"@remix-expo/remix\" run start",
-    "docker:build": "docker build -t remix-expo .",
-    "docker:test": "docker run -p8080:8080 remix-expo",
-    "fly": "flyctl"
-  },
   "homepage": "https://github.com/tyrauber/remix-expo#readme",
   "repository": {
     "type": "git",
@@ -22,5 +13,32 @@
   },
   "bugs": {
     "url": "https://github.com/tyrauber/remix-expo"
+  },
+  "packageManager": "pnpm@6.30.1",
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "apps/*"
+    ]
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --no-cache --parallel --continue",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "yarn clean:turbo && yarn clean:watchman",
+    "clean:turbo": "yarn turbo run clean && rm -rf node_modules",
+    "clean:watchman": "watchman watch-del-all && yarn cache clean",
+    "remix": "pnpm --filter \"@remix-expo/remix\"",
+    "expo": "pnpm --filter \"@remix-expo/expo\"",
+    "start": "pnpm --filter \"@remix-expo/remix\" run start",
+    "docker:build": "docker build -t remix-expo .",
+    "docker:test": "docker run -p8080:8080 remix-expo",
+    "deploy": "fly deploy"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "prettier": "^2.5.1",
+    "turbo": "latest"
   }
 }

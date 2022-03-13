@@ -1,10 +1,10 @@
 {
-  "extend": "../../tsconfig.json",
+  "extend": "../../packages/tsconfig/remix.json",
   "include": ["remix.env.d.ts"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~components/*": ["../../packages/components"],
+      "~components/*": ["../../packages/ui"],
       "~/*": ["./app/*"]
     },
 

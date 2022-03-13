@@ -6,19 +6,36 @@ Remix and Expo! Web and Mobile! The best of both worlds!
 
 **Share React Native components between Web and Mobile Applications!**
 
+## What's inside?
+
+This architecture uses [Turborepo](https://turborepo.org/) and [PNPM](https://pnpm.io) as a packages manager. It includes the following packages/apps:
+
+### Apps and Packages
+
+- `mobile`: a [Expo](https://expo.io) mobile app
+- `web`: a [Remix](https://remix.run/) web app
+- `ui`: a stub [ReactNative](https://reactnative.dev/) component library shared by both `web` and `mobile` applications
+- `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+
 ## Stack:
 
 Built on the backs of giants:
 
-  - [PNPM](https://pnpm.io/) - Package Manager
-  - [Typescript](https://www.typescriptlang.org/) - Language
-  - [ReactNative](https://reactnative.dev/) - Front-End Framework
-  - [Postgresql](https://www.postgresql.org) - Database
-  - [Prisma](https://www.prisma.io/) - Database ORM
-  - [Remix](https://remix.run/) - Web Framework
-  - [Expo](https://expo.io) - Application Framework
-  - [Docker](https://www.docker.com/) - Application Containers
-  - [Fly.io](https://fly.io) - Cloud Infrastructure
+  - [TypeScript](https://www.typescriptlang.org/) for static type checking
+  - [ESLint](https://eslint.org/) for code linting
+  - [Prettier](https://prettier.io) for code formatting
+  - [Turborepo](https://turborepo.org/) for build system
+  - [PNPM](https://pnpm.io/) - for package management
+  - [ReactNative](https://reactnative.dev/) - for front-end framework
+  - [Postgresql](https://www.postgresql.org) - for database
+  - [Prisma](https://www.prisma.io/) - for database orm
+  - [Remix](https://remix.run/) - for web framework
+  - [Expo](https://expo.io) - for mobile application framework
+  - [Docker](https://www.docker.com/) - for application containers
+  - [Fly.io](https://fly.io) - for cloud infrastructure
 
 Special thanks to all the amazing engineers making my life easier. Respect.
 
@@ -78,3 +95,56 @@ Issues, blockers and things to watch out for.
   - You definitely need a .npmrc file with `node-linker=hoisted`
   - You cannot use yarn workspaces - Adding workspaces to your package.json will create all sorts of issues.
   - You must alias react-native in the remix package.json with `"react-native": "npm:react-native-web@^0.17.5",`
+
+
+## Setup
+
+This repository is used in the `npx create-turbo@latest` command, and selected when choosing which package manager you wish to use with your monorepo (PNPM).
+
+### Build
+
+To build all apps and packages, run the following command:
+
+```
+cd my-turborepo
+pnpm run build
+```
+
+### Develop
+
+To develop all apps and packages, run the following command:
+
+```
+cd my-turborepo
+pnpm run dev
+```
+
+### Remote Caching
+
+Turborepo can use a technique known as [Remote Caching (Beta)](https://turborepo.org/docs/features/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+
+By default, Turborepo will cache locally. To enable Remote Caching (Beta) you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+
+```
+cd my-turborepo
+npx turbo login
+```
+
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
+
+```
+npx turbo link
+```
+
+## Useful Links
+
+Learn more about the power of Turborepo:
+
+- [Pipelines](https://turborepo.org/docs/features/pipelines)
+- [Caching](https://turborepo.org/docs/features/caching)
+- [Remote Caching (Beta)](https://turborepo.org/docs/features/remote-caching)
+- [Scoped Tasks](https://turborepo.org/docs/features/scopes)
+- [Configuration Options](https://turborepo.org/docs/reference/configuration)
+- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
