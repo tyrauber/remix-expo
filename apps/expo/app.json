@@ -17,7 +17,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tyrauber.react-native-app"
     },
     "android": {
       "adaptiveIcon": {

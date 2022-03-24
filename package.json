@@ -1,7 +1,7 @@
 {
   "name": "remix-expo",
   "version": "1.0.0",
-  "description": "Shared Components between Remix and Expo",
+  "description": "Remix and Expo Integration",
   "author": "Ty Rauber <tyrauber@mac.com>",
   "license": "MIT",
   "main": "./apps/remix/server/index.js",
@@ -32,8 +32,8 @@
     "remix": "pnpm --filter \"@remix-expo/remix\"",
     "expo": "pnpm --filter \"@remix-expo/expo\"",
     "start": "pnpm --filter \"@remix-expo/remix\" run start",
-    "docker:build": "docker build -t remix-expo .",
-    "docker:test": "docker run -p8080:8080 remix-expo",
+    "image:build": "docker build -t remix-expo .",
+    "image:run": "docker run -p8080:8080 remix-expo",
     "deploy": "fly deploy"
   },
   "devDependencies": {
