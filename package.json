@@ -27,7 +27,7 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "yarn clean:turbo && yarn clean:watchman",
-    "clean:turbo": "yarn turbo run clean && rm -rf node_modules",
+    "clean:turbo": "yarn turbo run clean && rm -rf node_modules  && rm -rf apps/*/ios && rm -rf apps/*/android",
     "clean:watchman": "watchman watch-del-all && yarn cache clean",
     "remix": "pnpm --filter \"@remix-expo/remix\"",
     "expo": "pnpm --filter \"@remix-expo/expo\"",
