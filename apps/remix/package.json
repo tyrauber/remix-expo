@@ -12,11 +12,12 @@
     "start:dev": "cross-env NODE_ENV=development concurrently \"remix dev\" \"node server/index.js\""
   },
   "dependencies": {
-    "@remix-run/express": "^1.1.3",
-    "@remix-run/node": "^1.1.3",
-    "@remix-run/react": "^1.1.3",
-    "@remix-run/serve": "^1.1.3",
-    "@remix-run/server-runtime": "^1.1.3",
+    "@prisma/client": "^3.10.0",
+    "@remix-run/express": "^1.3.3",
+    "@remix-run/node": "^1.3.3",
+    "@remix-run/react": "^1.3.3",
+    "@remix-run/serve": "^1.3.3",
+    "@remix-run/server-runtime": "^1.3.3",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
@@ -25,19 +26,18 @@
     "react-dom": "^17.0.2",
     "react-native": "npm:react-native-web@^0.17.5",
     "react-native-web": "^0.17.5",
-    "remix": "^1.1.3",
-    "twrnc": "^3.0.2"
+    "remix": "^1.3.3"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.1.3",
+    "@remix-run/dev": "^1.3.3",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "concurrently": "^7.0.0",
     "typescript": "^4.1.2"
   },
   "peerDependencies": {
-    "@remix-run/node": "^1.1.3",
-    "@remix-run/server-runtime": "^1.1.3"
+    "@remix-run/node": "^1.3.3",
+    "@remix-run/server-runtime": "^1.3.3"
   },
   "engines": {
     "node": ">=14"

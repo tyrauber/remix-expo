@@ -1,9 +1,0 @@
-{
-  "name": "@remix-expo/components",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
-  "dependencies": {
-    "react-native": "npm:react-native-web@^0.17.5"
-  }
-}

@@ -15,5 +15,5 @@ RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store\
 ENV PORT=8080
 ENV NODE_ENV production
 
-CMD [ "pnpm", "build" ]
-CMD [ "pnpm", "start" ]
+CMD [ "pnpm", "build", "--filter \"@remix-expo/remix\"" ]
+CMD [ "pnpm", "start", "--filter \"@remix-expo/remix\"" ]
